@@ -1,5 +1,6 @@
 #ifndef OWLCOMMS_H
 #define OWLCOMMS_H
+#define __WIN32__
 
 #endif // OWLCOMMS_H
 

@@ -31,7 +31,7 @@
 #include <fstream>
 
 #include <sys/types.h>
-#include <unistd.h>
+//#include <unistd.h>
 
 #include "owl-pwm.h"
 #include "owl-comms.h"
