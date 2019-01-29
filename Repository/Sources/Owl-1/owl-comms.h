@@ -1,6 +1,5 @@
 #ifndef OWLCOMMS_H
 #define OWLCOMMS_H
-#define __WIN32__
 
 #endif // OWLCOMMS_H
 
@@ -20,7 +19,7 @@
  * http://blog.pusheax.com/2013/07/windows-api-winsock-create-your-first.html for winsock2 example
  * as linux and win32 have different IP socket calling structures
  */
-#ifdef __WIN32__
+#ifdef _WIN32
 # include <winsock2.h>
 # include <windows.h>
 #else
@@ -41,7 +40,7 @@ int clientSock;
 
 
 SOCKET OwlCommsInit (int PORT, string PiADDR ){
-#ifdef __WIN32__
+#ifdef _WIN32
     WSAData version;        //We need to check the version.
         WORD mkword=MAKEWORD(2,2);
         int what=WSAStartup(mkword,&version);
@@ -87,7 +86,7 @@ SOCKET OwlCommsInit (int PORT, string PiADDR ){
 
 string OwlSendPacket (SOCKET u_sock, string CMD){
     char receivedCHARS[2]; // send 'ok' back
-#ifdef __WIN32__
+#ifdef _WIN32
         int smsg=send(u_sock,CMD.c_str(),strlen(CMD.c_str()),0);
         if(smsg==SOCKET_ERROR){
             std::cout<<"Error: "<<WSAGetLastError()<<std::endl;

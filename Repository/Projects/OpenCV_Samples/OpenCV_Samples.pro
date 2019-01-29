@@ -4,20 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 
-INCLUDEPATH += C:\OpenCV31\build\include ### was c:/opencv31/release/install/include
+INCLUDEPATH += "C:/openCV343/build/include" ## CHECK LOCATION
+LIBS += -LC:\opencv343\build\x64\vc15\lib ## CHECK LOCATION
+LIBS += -LC:\opencv343\build\x64\vc15\bin
+LIBS += -LC:\opencv343\build\lib
+LIBS += -lopencv_world343.dll \  # assume opencv world is available, else have to include all libraries, as for unix, but specific ref to version
+    -lws2_32
 
-#LIBS += -LC:\opencv31\build\install\x86\mingw\lib
-#LIBS += -LC:\opencv31\build\install\x86\mingw\bin
-#LIBS += -LC:\OpenCV31\build\install\x64\mingw\lib
-LIBS += -LC:\opencv31\build\lib
-LIBS += -lopencv_core310 \
-    -lopencv_highgui310 \
-    -lopencv_imgproc310 \
-    -lopencv_features2d310 \
-    -lopencv_calib3d310 \
-    -lopencv_videoio310 \
-    -lws2_32 \
-##    -lopencv_ffmpeg310
 
 SOURCES += \
     ../../Sources/OpenCV_samples/contours2.cpp
